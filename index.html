@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <!-- container -->
+        <div class="flex flex-col lg:flex-row">
+            <!-- shape container -->
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- triangle -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="/images/triangle.png" alt="Triangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Triangle</h2>
+                        <p>Area (A) = 0.5 X b X h</p>
+                        <div class="flex">
+                            <p>
+                                <input type="text" id="base-input-field" class="w-24 text-xl">
+                                <span class="mr-2">cm</span>
+                            </p>
+                            <p>
+                                <input type="text" id="height-field" class="w-24 text-xl">
+                                <span class="">cm</span>
+                            </p>
+                        </div>
+                        <p>Area:<span id="triangle-value">0 </span>cm<sup>2</sup></p>
+                        <div class="card-actions">
+                            <button onclick="calculateTriangleValue()" class="btn btn-primary w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rectangle -->
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="/images/rectangle.png" alt="Rectangle" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Rectangle</h2>
+                        <p>Area (A) = w X l</p>
+                        <div class="flex">
+                            <p>
+                                <input type="text" id="rectangle-width" class="w-24 text-xl">
+                                <span class="mr-2">cm</span>
+                            </p>
+                            <p>
+                                <input type="text" id="rectangle-length" class="w-24 text-xl">
+                                <span class="">cm</span>
+                            </p>
+                        </div>
+                        <p>Area:<span id="rectangle-value">0 </span>cm<sup>2</sup></p>
+                        <div class="card-actions">
+                            <button onclick="calculateRectangleValue()"class="btn btn-primary w-full">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </main>
+    <script>
+        function calculateRectangleValue() {
+            const baseInputField = document.getElementById('rectangle-width');
+            const baseInputFieldValueString = baseInputField.value;
+            const baseInputFieldValue = parseFloat(baseInputFieldValueString);
+
+            const heightField = document.getElementById('rectangle-length');
+            const heightFieldValueString = heightField.value;
+            const heightFieldValue = parseFloat(heightFieldValueString);
+
+            const totalValue = baseInputFieldValue * heightFieldValue;
+            const AreaTotalValue = setNewTotalValue('rectangle-value', totalValue);
+        }
+    </script>
+    <script src="./scripts/calculate.js"></script>
+</body>
+
+</html>
